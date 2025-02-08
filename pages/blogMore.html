@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script>
+		tailwind.config = {
+			darkMode: 'class',
+			theme: {
+				roboto: "Roboto Condensed",
+				extend: {
+					colors: {
+						darkBg: "#1e293b",
+						darkText: "#e2e8f0",
+						darkCard: "#334155"
+					}
+				}
+			}
+		}
+	</script>
+	<title>Blogs application</title>
+
+</head>
+
+<body class="bg-gray-50">
+	<nav
+		class="block w-full max-w-screen mx-auto bg-gray-50 z-10 sticky top-0 shadow-md border-b lg:px-8 lg:py-3 dark:bg-gray-900 ">
+		<div class="container w-10/12 flex gap-2 flex-wrap items-center justify-between mx-auto text-slate-800">
+			<a href="#" class="block cursor-pointer  text-base text-slate-800 font-semibold">
+				<img class="w-[90%] lg:w-full"
+					src="https://images.ctfassets.net/vkdbses00qqt/2Yjamnj5iiT981LbZHQHgI/e4a51ce53f00d52febd3a72caab662ed/cloud.svg"
+					alt="logo">
+			</a>
+
+			<div class="hidden lg:block">
+				<ul class="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+					<a href="./myblogs.html">
+						<li class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black-300 dark:bg-gray-700 hover:text-blue-500 dark:text-white  hover:border  hover:border-blue-500 border
+					">
+							<i class="fa-solid fa-house"></i>
+							Blogs
+						</li>
+					</a>
+					<a href="./profile.html">
+						<li class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black-300 dark:bg-gray-700 hover:text-blue-500 dark:text-white  hover:border  hover:border-blue-500 border
+					">
+							<i class="fa-solid fa-user "></i>
+							<p>
+								Profile
+							</p>
+						</li>
+					</a>
+					<li
+						class="flex items-center px-3 py-2 text-sm font-medium   text-sm gap-x-2 text-slate-600 rounded-md border border-red-400 active:bg-red-100">
+						<i class="fa-solid fa-right-from-bracket text-red-400 "></i>
+						<a href="../index.html" class="flex items-center text-red-400  font-[Roboto Condensed] ">
+							Log out
+						</a>
+					</li>
+
+				</ul>
+			</div>
+
+			<button id="mobilebtn"
+				class="relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] select-none rounded-lg text-center align-middle text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden dark:text-white"
+				type="button">
+				<span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+					</svg>
+				</span>
+			</button>
+			<button id="theme-toggle" class="px-3 py-2 rounded-2xl bg-gray-200 dark:bg-gray-800 text-black dark:text-white ">
+			</button>
+		</div>
+
+	</nav>
+
+	<div class=" border rounded-full px-1  fixed bottom-[20px] z-99 left-[20px] lg:left-[80px] bg-gray-900 ">
+		<a href="./myblogs.html" class="flex gap-1 items-center dark:text-white text-white"><i
+				class="fa-solid fa-circle-left dark:text-white text-2xl hover:text-blue-400"></i>
+		</a>
+	</div>
+	<main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
+		<div class="flex justify-between px-4 mx-auto max-w-screen-xl">
+
+			<article
+				class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+				<header class="mb-4 lg:mb-6 not-format">
+					<address class="flex items-center mb-6 not-italic">
+						<div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+							<img id="authorImage" class="mr-4 w-16 h-16 rounded-full" src="" alt="Author">
+							<div>
+								<a id="authorName" href="#" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">Author
+									Name</a>
+								<p id="authorBio" class="text-base text-gray-500 dark:text-gray-400">Author Bio</p>
+								<p id="postDate" class="text-base text-gray-500 dark:text-gray-400"><time id="postTime" pubdate
+										datetime="">Post Date</time></p>
+							</div>
+						</div>
+					</address>
+				</header>
+
+				<figure class="my-2 object-cover">
+					<img id="blogImage" src="" alt="Blog Image" class="w-full rounded-lg">
+				</figure>
+
+				<h1 id="blogTitle"
+					class="my-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white"></h1>
+				<p id="blogDescription" class="lead text-gray-800 dark:text-gray-300"></p>
+			</article>
+		</div>
+		<div class="container w-10/12 mx-auto">
+			<div class="flex flex-col md:flex-row justify-between mx-auto max-w-screen-xl">
+				<section class="not-format w-full">
+					<div class="flex justify-between items-center my-6">
+						<h2 id="commentsCount" class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
+							Discussion (0)
+						</h2>
+					</div>
+					<form id="commentForm" class="mb-6">
+						<div
+							class="py-2 px-4 mb-4 bg-white rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+							<label for="comment" class="sr-only">Your comment</label>
+							<textarea id="comment" rows="4"
+								class="w-full outline-none text-sm text-gray-900 border-0 focus:ring-0 dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+								placeholder="Write a comment..." required></textarea>
+						</div>
+						<button type="submit"
+							class="border inline-flex items-center py-2 px-6 md:px-8 text-xs md:text-sm font-medium text-center bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 text-black dark:text-white">
+							Post comment
+						</button>
+					</form>
+					<div id="commentList"></div>
+				</section>
+			</div>
+		</div>
+	</main>
+
+
+	<div id="sidebar"
+		class="fixed top-0 left-0 w-64 h-full bg-white dark:bg-darkCard shadow-lg transform -translate-x-full transition-transform duration-300 dark:bg-gray-900">
+		<div class="p-5 flex justify-between items-center border-b dark:border-gray-600">
+			<h2 class="text-lg font-semibold">Menyu</h2>
+			<button id="closeSidebar" class="text-2xl">&times;</button>
+		</div>
+
+		<ul class="flex flex-col gap-2 mt-2 mb-4 p-5">
+			<a href="./myblogs.html">
+				<li class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black-300 dark:bg-gray-700 hover:text-blue-500 dark:text-white  hover:border  hover:border-blue-500 border
+			">
+					<i class="fa-solid fa-user "></i>
+					<p>
+						Blogs
+					</p>
+				</li>
+			</a>
+			<a href="./profile.html">
+				<li class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black-300 dark:bg-gray-700 hover:text-blue-500 dark:text-white  hover:border  hover:border-blue-500 border
+			">
+					<i class="fa-solid fa-user "></i>
+					<p>
+						Profile
+					</p>
+				</li>
+			</a>
+			<a href="../index.html">
+				<li
+					class="flex items-center px-3 py-2 text-sm font-medium   text-sm gap-x-2 text-slate-600 rounded-md border border-red-400 active:bg-red-100">
+					<i class="fa-solid fa-right-from-bracket text-red-400 "></i>
+					<p class="flex items-center text-red-400  font-[Roboto Condensed] ">
+						Log out
+					</p>
+				</li>
+			</a>
+		</ul>
+	</div>
+
+
+
+
+
+	<footer class="bg-gray-50 border-t text-gray-400 text-center py-6  text-sm dark:bg-gray-900">
+		<p>© 2025 Your Company. All rights reserved.</p>
+	</footer>
+	<script src="../js/blogMore.js"></script>
+	<script src="../js/mobile.js"></script>
+	<script src="../js/main.js"></script>
+</body>
+
+</html>

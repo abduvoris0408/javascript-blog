@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>User Profile</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script>
+		tailwind.config = {
+			darkMode: 'class',
+			theme: {
+				roboto: "Roboto Condensed",
+				extend: {
+					colors: {
+						darkBg: "#1e293b",
+						darkText: "#e2e8f0",
+						darkCard: "#334155"
+					}
+				}
+			}
+		}
+	</script>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900">
+	<nav
+		class="block w-full max-w-screen mx-auto bg-gray-50 z-10 sticky top-0 shadow-md border-b lg:px-8 lg:py-3 dark:bg-gray-900 ">
+		<div class="container w-10/12 flex gap-2 flex-wrap items-center justify-between mx-auto text-slate-800">
+			<a href="#" class="block cursor-pointer  text-base text-slate-800 font-semibold">
+				<img class="w-[90%]"
+					src="https://images.ctfassets.net/vkdbses00qqt/2Yjamnj5iiT981LbZHQHgI/e4a51ce53f00d52febd3a72caab662ed/cloud.svg"
+					alt="logo">
+			</a>
+
+			<div class="hidden lg:block">
+				<ul class="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+					<a href="./myblogs.html">
+						<li class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black-300 dark:bg-gray-700 hover:text-blue-500 dark:text-white  hover:border  hover:border-blue-500 border
+					">
+							<i class="fa-solid fa-house"></i>
+							<p>
+								Blogs
+							</p>
+						</li>
+					</a>
+					<li class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black-300 dark:bg-gray-700 hover:text-blue-500 dark:text-white  hover:border  hover:border-blue-500 border
+					">
+						<i class="fa-solid fa-user "></i>
+						<a href="#">
+							Profile
+						</a>
+					</li>
+					<li
+						class="flex items-center px-3 py-2 text-sm font-medium   text-sm gap-x-2 text-slate-600 rounded-md border border-red-400 active:bg-red-100">
+						<i class="fa-solid fa-right-from-bracket text-red-400 "></i>
+						<a href="../index.html" class="flex items-center text-red-400  font-[Roboto Condensed] ">
+							Log out
+						</a>
+					</li>
+
+				</ul>
+			</div>
+
+			<button id="mobilebtn"
+				class="relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] select-none rounded-lg text-center align-middle text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden dark:text-white"
+				type="button">
+				<span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+					</svg>
+				</span>
+			</button>
+			<button id="theme-toggle" class="px-3 py-2 rounded-2xl bg-gray-200 dark:bg-gray-800 text-black dark:text-white ">
+			</button>
+		</div>
+
+	</nav>
+	<div id="profilePage" class="bg-gray-50 dark:bg-gray-900 to-black text-white flex justify-center items-center">
+		<div class="flex justify-center items-center my-2 px-4">
+			<div
+				class="bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl shadow-2xl w-full max-w-4xl border border-gray-700 dark:border-gray-600">
+				
+				<div class="flex justify-between items-center mb-6">
+					<h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-gray-800 dark:text-white">User
+							Profile</h2>
+					<button class="text-gray-400 hover:text-white transition duration-300">
+							<span class="text-xl sm:text-2xl">⚙</span>
+					</button>
+			</div>
+			<div class="flex justify-center mb-6 relative">
+					<div class="w-24 h-24 sm:w-28 sm:h-28 bg-white dark:bg-gray-600 rounded-full flex items-center justify-center relative border-2 border-gray-600 dark:border-gray-500">
+							<img id="avatarImage" src="" class="w-full h-full object-cover rounded-full" />
+							<span class="text-gray-400 text-2xl sm:text-3xl" id="placeholderIcon">🖼</span>
+							<div class="absolute bottom-0 right-0 bg-blue-500 p-2 rounded-full text-xs cursor-pointer shadow-lg hover:bg-blue-600 transition duration-300" id="editAvatarBtn">
+									✏
+							</div>
+					</div>
+			</div>
+			<div id="avatarModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+				<div class="bg-white dark:bg-gray-800 rounded-lg w-full sm:w-1/3 lg:w-1/4 p-6">
+						<h3 class="text-xl font-bold text-center mb-4">Change Avatar</h3>
+						<input type="text" id="avatarUrlInput" class="w-full p-2 rounded-lg text-black border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Avatar URL" />
+						<div class="flex justify-between mt-4">
+								<button id="closeModalBtn" class="bg-gray-400 text-white px-4 py-2 rounded-lg">Cancel</button>
+								<button id="saveAvatarBtn" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Save</button>
+						</div>
+				</div>
+		</div>
+	
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+					<div>
+						<label class="block text-sm font-semibold text-black dark:text-white">Name</label>
+						<input type="text" id="name" value="Zephyr"
+							class="editable w-full p-3 mt-1 bg-gray-50 text-black dark:bg-gray-600 rounded-xl border border-gray-600 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 transition duration-300 "
+							disabled>
+					</div>
+
+					<div>
+						<label class="block text-sm font-semibold text-black dark:text-white">Phone</label>
+						<input type="text" id="phone" value="+1 (555) 123-4567"
+							class="editable w-full p-3 mt-1 bg-white dark:bg-gray-600 rounded-xl border border-gray-600 dark:border-gray-500 text-black focus:ring-2 focus:ring-blue-500 transition duration-300"
+							disabled>
+					</div>
+					<div class="sm:col-span-2">
+						<label class="block text-sm font-semibold text-black dark:text-white">Email</label>
+						<input type="email" id="email" value="zephyr.stormrider@example.com"
+							class="editable w-full p-3 mt-1 bg-white dark:bg-gray-600 rounded-xl border border-gray-600 dark:border-gray-500 text-black focus:ring-2 focus:ring-blue-500 transition duration-300"
+							disabled>
+					</div>
+					<div class="sm:col-span-2">
+						<label class="block text-sm font-semibold text-black dark:text-white">Password</label>
+						<input type="password" id="password" value="********"
+							class="editable w-full p-3 mt-1 bg-white dark:bg-gray-600 rounded-xl border border-gray-600 dark:border-gray-500 text-black focus:ring-2 focus:ring-blue-500 transition duration-300"
+							disabled>
+					</div>
+				</div>
+				<div class="flex flex-col sm:flex-row justify-end mt-8 space-y-3 sm:space-y-0 sm:space-x-4">
+					<button id="editBtn"
+						class="bg-yellow-500 hover:bg-yellow-600 text-white px-5 py-3 rounded-xl shadow-md transition duration-300">Edit</button>
+					<button id="saveBtn"
+						class="bg-blue-500 hover:bg-blue-600 text-white px-5 py-3 rounded-xl shadow-md transition duration-300 hidden">Save
+						Changes</button>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="sidebar"
+			class="fixed top-0 left-0 w-64 h-full bg-white dark:bg-darkCard shadow-lg transform -translate-x-full transition-transform duration-300 dark:bg-gray-900">
+			<div class="p-5 flex justify-between items-center border-b dark:border-gray-600">
+				<h2 class="text-lg font-semibold">Menyu</h2>
+				<button id="closeSidebar" class="text-2xl">&times;</button>
+			</div>
+
+			<ul class="flex flex-col gap-2 mt-2 mb-4 p-5">
+				<a href="./myblogs.html">
+					<li class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black dark:bg-gray-700 hover:text-blue-500 dark:text-white  hover:border  hover:border-blue-500 border
+				">
+						<i class="fa-solid fa-user "></i>
+						<p>
+							Blogs
+						</p>
+					</li>
+				</a>
+				<a href="#">
+					<li class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black dark:bg-gray-700 hover:text-blue-500 dark:text-white  hover:border  hover:border-blue-500 border
+				">
+						<i class="fa-solid fa-user "></i>
+						<p>
+							Profile
+						</p>
+					</li>
+				</a>
+				<a href="../index.html">
+					<li
+						class="flex items-center px-3 py-2 text-sm font-medium   text-sm gap-x-2 text-slate-600 rounded-md border border-red-400 active:bg-red-100">
+						<i class="fa-solid fa-right-from-bracket text-red-400 "></i>
+						<p class="flex items-center text-red-400  font-[Roboto Condensed] ">
+							Log out
+						</p>
+					</li>
+				</a>
+			</ul>
+		</div>
+
+	</div>
+	<script src="../js/profile.js"></script>
+	<script src="../js/mobile.js"></script>
+	<script src="../js/main.js"></script>
+</body>
+
+</html>

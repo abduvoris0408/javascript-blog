@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script>
+		tailwind.config = {
+			darkMode: 'class',
+			theme: {
+				roboto: "Roboto Condensed",
+				extend: {
+					colors: {
+						darkBg: "#1e293b",
+						darkText: "#e2e8f0",
+						darkCard: "#334155"
+					}
+				}
+			}
+		}
+	</script>
+	<title>Blogs application</title>
+
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900">
+	<nav
+		class="block w-full max-w-screen mx-auto bg-gray-50 z-10 sticky top-0 shadow-md border-b lg:px-8 lg:py-3 dark:bg-gray-900 ">
+		<div class="container w-10/12 flex gap-2 flex-wrap items-center justify-between mx-auto text-slate-800">
+			<a href="#" class="block cursor-pointer  text-base text-slate-800 font-semibold">
+				<img class="w-[90%]"
+					src="https://images.ctfassets.net/vkdbses00qqt/2Yjamnj5iiT981LbZHQHgI/e4a51ce53f00d52febd3a72caab662ed/cloud.svg"
+					alt="logo">
+			</a>
+
+			<div class="hidden lg:block">
+				<ul class="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+					<li class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black-300 dark:bg-gray-700 hover:text-blue-500 dark:text-white  hover:border  hover:border-blue-500 border
+					">
+						<i class="fa-solid fa-house"></i> <a href="#">
+							Blogs
+						</a>
+					</li>
+					<a href="./profile.html">
+						<li class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black-300 dark:bg-gray-700 hover:text-blue-500 dark:text-white  hover:border  hover:border-blue-500 border
+					">
+							<i class="fa-solid fa-user "></i>
+							<p>
+								Profile
+							</p>
+						</li>
+					</a>
+					<li
+						class="flex items-center px-3 py-2 text-sm font-medium   text-sm gap-x-2 text-slate-600 rounded-md border border-red-400 active:bg-red-100">
+						<i class="fa-solid fa-right-from-bracket text-red-400 "></i>
+						<a href="../index.html" class="flex items-center text-red-400  font-[Roboto Condensed] ">
+							Log out
+						</a>
+					</li>
+
+				</ul>
+			</div>
+
+			<button id="mobilebtn"
+				class="relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] select-none rounded-lg text-center align-middle text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden dark:text-white"
+				type="button">
+				<span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+					</svg>
+				</span>
+			</button>
+			<button id="theme-toggle" class="px-3 py-2 rounded-2xl bg-gray-200 dark:bg-gray-800 text-black dark:text-white ">
+			</button>
+		</div>
+	</nav>
+
+	<div class=" bg-gray-50 dark:bg-gray-900 p-6 text-gray-900 dark:text-gray-200">
+		<div class="container w-10/12 mx-auto ">
+
+			<div class="w-full mx-auto max-w-sm min-w-[200px] flex flex-col gap-3">
+				<div class="relative">
+					<!-- Input box for search -->
+					<input id="searchInput"
+						class="w-full bg-transparent text-black dark:text-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pl-3 pr-28 py-4 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+						placeholder="Blogs, authors searching..." />
+
+					<!-- Search button -->
+					<button
+						class="absolute top-1 right-1 flex items-center rounded bg-slate-800 py-3 px-2.5 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+						type="button">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mr-2">
+							<path fill-rule="evenodd"
+								d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z"
+								clip-rule="evenodd" />
+						</svg>
+						Search
+					</button>
+				</div>
+
+				<!-- Add Blog button -->
+				<button id="addblog"
+					class="w-full flex items-center justify-center active:bg-gray-100 dark:bg-gray-700 active:text-blue-500 active:border-blue-500 font-mono gap-2 border px-3 py-2 rounded-lg">
+					<i class="fa-solid fa-blog"></i>
+					<p>Add Blog</p>
+				</button>
+			</div>
+
+
+			<div id="blog-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 min-h-[calc(100vh-270px)]">
+				<div id="loading" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+						<div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid"></div>
+				</div>
+		</div>
+		
+		</div>
+	</div>
+	</div>
+
+
+	<div id="sidebar"
+		class="fixed top-0 left-0 w-64 h-full bg-white dark:bg-darkCard shadow-lg transform -translate-x-full transition-transform duration-300 dark:bg-gray-900">
+		<div class="p-5 flex justify-between items-center border-b dark:border-gray-600">
+			<h2 class="text-lg font-semibold">Menyu</h2>
+			<button id="closeSidebar" class="text-2xl">&times;</button>
+		</div>
+
+		<ul class="flex flex-col gap-2 mt-2 mb-4 p-5">
+			<li class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black-300 dark:bg-gray-700 hover:text-blue-500 dark:text-white  hover:border  hover:border-blue-500 border
+				">
+				<i class="fa-solid fa-house"></i> <a href="#">
+					Blogs
+				</a>
+			</li>
+			<a href="./profile.html">
+				<li class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black-300 dark:bg-gray-700 hover:text-blue-500 dark:text-white  hover:border  hover:border-blue-500 border
+			">
+					<i class="fa-solid fa-user "></i>
+					<p>
+						Profile
+					</p>
+				</li>
+			</a>
+			<li
+				class="flex items-center px-3 py-2 text-sm font-medium   text-sm gap-x-2 text-slate-600 rounded-md border border-red-400 active:bg-red-100">
+				<i class="fa-solid fa-right-from-bracket text-red-400 "></i>
+				<a href="../index.html" class="flex items-center text-red-400  font-[Roboto Condensed] ">
+					Log out
+				</a>
+			</li>
+		</ul>
+	</div>
+
+
+
+	<!-- addblog -->
+
+	<div id="default_modal" tabindex="-1" aria-hidden="true"
+		class="hidden fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-50">
+		<div class="relative p-4 w-full max-w-2xl max-h-full">
+			<div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+				<div
+					class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+					<h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+						Add news
+					</h3>
+					<button id="closeModal"
+						class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+						data-modal-hide="default-modal">
+						<svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+						</svg>
+						<span class="sr-only">Close modal</span>
+					</button>
+				</div>
+				<div class="p-4 md:p-5 space-y-4">
+					<form id="addform" class="space-y-4">
+						<div>
+							<label for="title" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Enter a
+								title</label>
+							<input type="text" id="title" placeholder="Title"
+								class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600">
+						</div>
+						<div>
+							<label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Enter a
+								description</label>
+							<input type="text" id="description" placeholder="Description"
+								class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600">
+						</div>
+
+						<div>
+							<label for="file" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Choose image</label>
+							<input type="file" id="file"
+								class="mt-1 block w-full border px-3 py-2 border-gray-300 rounded-lg shadow-sm cursor-pointer bg-white dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:outline-none">
+						</div>
+					</form>
+				</div>
+				<div class="flex items-center justify-end p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+					<button data-modal-hide="default-modal" type="button" id="addBlog"
+						class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
+						blog</button>
+					<button id="addBlogLoading" class="hidden bg-gray-500 text-white px-6 py-2 rounded-lg">
+						Loading...
+					</button>
+					<button data-modal-hide="default-modal" id="declinemodal"
+						class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border  hover:bg-gray-100 hover:text-red-500 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800   text-red-400 border-red-400 dark:hover:bg-gray-700">Decline</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- addblog -->
+
+
+
+	<footer class="  bg-gray-50 border-t text-gray-400 text-center py-6  text-sm dark:bg-gray-900">
+		<p>© 2025 Your Company. All rights reserved.</p>
+	</footer>
+
+	<script src="../js/mobile.js"></script>
+	<script src="../js/myBlogs.js"></script>
+	<script src="../js/main.js"></script>
+</body>
+
+</html>
